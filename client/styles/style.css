@@ -1,0 +1,17 @@
+.menu {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  width: 200px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#canvas {
+  background: linear-gradient(90deg, rgba(80,76,156,1) 14%, rgba(159,69,47,1) 52%, rgba(0,212,255,1) 92%);
+  height: 500px;
+  width: 500px;
+}
