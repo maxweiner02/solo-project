@@ -18,7 +18,7 @@ mongoose.connection.on('error', (err) => {
   console.error(`Mongoose connection error: ${err}`);
 });
 
-const { Schema } = mongoose.Schema;
+const { Schema } = mongoose;
 
 const buttonSchema = new Schema({
   text: { type: String, required: true },
@@ -26,13 +26,17 @@ const buttonSchema = new Schema({
 });
 
 const nodeSchema = new Schema({
-  title: { type: String, required: true, unique: true },
-  text: { type: String, required: true },
+  title: { type: String, required: true, default: '' },
+  text: { type: String, required: true, default: '' },
   locationX: { type: Number, required: true },
   locationY: { type: Number, required: true },
   buttons: [buttonSchema],
 });
 
+const Button = mongoose.model('Button', buttonSchema);
 const StoryNode = mongoose.model('Story_Nodes', nodeSchema);
 
-module.exports = StoryNode;
+module.exports = {
+  StoryNode,
+  Button,
+};

@@ -8,10 +8,27 @@
   width: 200px;
   padding-top: 20px;
   padding-bottom: 20px;
+  position: fixed;
+  background-color: white;
+  margin-top: 20px;
+  margin-left: 20px;
+  z-index: 3;
+
 }
 
 #canvas {
-  background: linear-gradient(90deg, rgba(80,76,156,1) 14%, rgba(159,69,47,1) 52%, rgba(0,212,255,1) 92%);
-  height: 500px;
-  width: 500px;
+  height: 10000px;
+  width: 10000px;
+  background-size: 40px 40px;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, grey 1px, transparent 1px),
+    linear-gradient(to bottom, grey 1px, transparent 1px);
+}
+
+.storyNode {
+  height: 1000px;
+  width: 1000px;
+  background-color: black;
+  z-index: 2;
 }
