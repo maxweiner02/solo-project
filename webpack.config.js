@@ -19,7 +19,10 @@ module.exports = {
     port: 8080,
     hot: true,
     proxy: {
-      '/help': {
+      '/save': {
+        target: 'http://localhost:3000',
+      },
+      '/load': {
         target: 'http://localhost:3000',
       },
     },

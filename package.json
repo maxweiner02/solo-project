@@ -16,6 +16,7 @@
   },
   "author": "Max Weiner https://github.com/maxweiner02",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mongodb": "^6.0.0",
@@ -23,6 +24,7 @@
     "nodemon": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-draggable": "^4.4.5",
     "react-map-interaction": "^2.1.0"
   },
   "devDependencies": {
