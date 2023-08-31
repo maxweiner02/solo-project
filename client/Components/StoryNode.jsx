@@ -47,12 +47,26 @@ const StoryNode = (props) => {
       .catch((err) => console.error(err));
   };
 
+  const deleteHelper = (event) => {
+    const title = event.target.offsetParent.children[0].value;
+    const parent = event.target.offsetParent;
+    parent.style.display = 'none';
+    fetch('http://localhost:3000/delete', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.error(err));
+  };
+
   return (
     <Draggable
       bounds="parent"
       defaultPosition={{
-        x: posX || ((window.screen.width / 2) - 200),
-        y: posY - 202 || ((window.screen.height / 2) + multiplier - 200),
+        x: posX - 110 || ((window.screen.width / 2) - 200),
+        y: posY - 209 || ((window.screen.height / 2) + multiplier - 200),
       }}
     >
       <div className="storyNode" onMouseEnter={() => startHover()} onMouseLeave={() => endHover()}>
@@ -60,7 +74,7 @@ const StoryNode = (props) => {
         <textarea className="noteContent" defaultValue={text || ''} />
         <div className="buttonContainer">
           <button type="submit" className="saveButton" onClick={(event) => saveHelper(event)}>Save</button>
-          <button type="button" className="editButton">Edit</button>
+          <button type="button" className="editButton" onClick={(event) => deleteHelper(event)}>Delete</button>
         </div>
       </div>
     </Draggable>

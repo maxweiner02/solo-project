@@ -26,7 +26,7 @@ const buttonSchema = new Schema({
 });
 
 const nodeSchema = new Schema({
-  title: { type: String, required: true, default: '' },
+  title: { type: String, required: true, unique: true },
   text: { type: String, required: true, default: '' },
   locationX: { type: Number, required: true },
   locationY: { type: Number, required: true },

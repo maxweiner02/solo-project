@@ -14,7 +14,8 @@ app.post('/save', async (req, res, next) => {
   const {
     title, text, locationX, locationY,
   } = req.body;
-  const count = await models.StoryNode.find({ title, text }).count().exec();
+  console.log();
+  const count = await models.StoryNode.find({ title }).count().exec();
 
   if (count === 0) {
     models.StoryNode.create({
@@ -29,7 +30,9 @@ app.post('/save', async (req, res, next) => {
         message: { err: 'oopsies poopsies' },
       }));
   } else {
-    models.StoryNode.updateOne({ title, text }, { locationX, locationY })
+    models.StoryNode.updateOne({ title }, {
+      locationX, locationY, title, text,
+    })
       .then(() => {
         res.status(200).json('location updated successfully');
       })
@@ -40,11 +43,27 @@ app.post('/save', async (req, res, next) => {
   }
 });
 
-app.get('/load', (req, res) => {
+app.get('/load', (req, res, next) => {
   models.StoryNode.find({})
     .then((data) => {
       res.status(200).send(data);
-    });
+    })
+    .catch((err) => next({
+      log: err,
+      message: { err: 'oopsies poopsies' },
+    }));
+});
+
+app.delete('/delete', (req, res, next) => {
+  const { title } = req.body;
+  models.StoryNode.findOneAndDelete({ title })
+    .then(() => {
+      res.status(200).json('note deleted successfully');
+    })
+    .catch((err) => next({
+      log: err,
+      message: { err: 'oopsies poopsies' },
+    }));
 });
 
 // Unknown route handler

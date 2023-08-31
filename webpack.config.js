@@ -25,6 +25,9 @@ module.exports = {
       '/load': {
         target: 'http://localhost:3000',
       },
+      '/delete': {
+        target: 'http://localhost:3000',
+      },
     },
   },
   module: {

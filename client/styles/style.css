@@ -13,7 +13,12 @@
   margin-top: 30px;
   margin-left: 20px;
   z-index: 3;
+}
 
+#addNode {
+  height: 60px;
+  width: 150px;
+  font-size: x-large;
 }
 
 #canvas {

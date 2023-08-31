@@ -30,7 +30,6 @@ const CanvasContainer = (props) => {
   }, []);
 
   for (let i = savedNodes.length; i < nodeList; i += 1) {
-    console.log(savedNodes);
     curNodeList.push(
       <StoryNode hoverNode={hoverNode} hoverNodeState={hoveNodeState} id={`note${i}`} multiplier={i * -245} />,
     );
