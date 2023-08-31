@@ -2,6 +2,7 @@
 /* eslint-disable no-console */
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const models = require('./storyNodeModel');
 
 const app = express();
@@ -9,6 +10,13 @@ const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
+
+if (process.env.NODE_ENV === 'production') {
+  // statically serve everything in the build folder on the route '/build'
+  app.use('/dist', express.static(path.join(__dirname, '../dist')));
+  // serve index.html on the route '/'
+  app.get('/', (req, res) => res.status(200).sendFile(path.join(__dirname, '../index.html')));
+}
 
 app.post('/save', async (req, res, next) => {
   const {
