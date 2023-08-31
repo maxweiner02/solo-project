@@ -21,7 +21,7 @@ const CanvasContainer = (props) => {
       .then((data) => {
         console.log(data);
         data.forEach((element, i) => {
-          saveNodes.push(<StoryNode hoverNode={hoverNode} hoverNodeState={hoveNodeState} id={`note${i}`} multiplier={i * -245} text={element.text} title={element.title} posX={element.locationX} posY={element.locationY} />);
+          saveNodes.push(<StoryNode hoverNode={hoverNode} hoverNodeState={hoveNodeState} id={`note${i}`} multiplier={i * -294} text={element.text} title={element.title} posX={element.locationX} posY={element.locationY} />);
         });
         savedNodesState(saveNodes);
         nodeListState(saveNodes.length);
@@ -31,7 +31,7 @@ const CanvasContainer = (props) => {
 
   for (let i = savedNodes.length; i < nodeList; i += 1) {
     curNodeList.push(
-      <StoryNode hoverNode={hoverNode} hoverNodeState={hoveNodeState} id={`note${i}`} multiplier={i * -245} />,
+      <StoryNode hoverNode={hoverNode} hoverNodeState={hoveNodeState} id={`note${i}`} multiplier={i * -294} />,
     );
   }
 

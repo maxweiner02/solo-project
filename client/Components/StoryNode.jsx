@@ -28,8 +28,8 @@ const StoryNode = (props) => {
     console.log(event);
     const text = event.target.offsetParent.children[1].value;
     const title = event.target.offsetParent.children[0].value;
-    const locationX = event.pageX;
-    const locationY = event.pageY;
+    const locationX = event.pageX - event.target.offsetLeft;
+    const locationY = event.pageY - event.target.offsetTop;
     const request = {
       title,
       text,
@@ -64,8 +64,8 @@ const StoryNode = (props) => {
     <Draggable
       bounds="parent"
       defaultPosition={{
-        x: posX - 110 || ((window.screen.width / 2) - 200),
-        y: posY - 400 || ((window.screen.height / 2) + multiplier),
+        x: posX - 50 || ((window.screen.width / 2) - 200),
+        y: posY + multiplier - 50 || ((window.screen.height / 2) + multiplier - 350),
       }}
     >
       <div className="storyNode" onMouseEnter={() => startHover()} onMouseLeave={() => endHover()}>
