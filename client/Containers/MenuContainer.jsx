@@ -13,7 +13,7 @@ const MenuContainer = (props) => {
 
   return (
     <div className="menu">
-      <button id="addNode" type="button" onClick={() => { clickHelper(); }}>Add Story Node</button>
+      <button id="addNode" type="button" onClick={() => { clickHelper(); }}>Add Note</button>
     </div>
   );
 };

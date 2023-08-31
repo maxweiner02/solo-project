@@ -1,5 +1,10 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .menu {
   border: 2px solid black;
+  border-radius: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +14,7 @@
   padding-top: 20px;
   padding-bottom: 20px;
   position: fixed;
-  background-color: white;
+  background-color: #11999e;
   margin-top: 30px;
   margin-left: 20px;
   z-index: 3;
@@ -19,6 +24,14 @@
   height: 60px;
   width: 150px;
   font-size: x-large;
+  border: none;
+  color: #f3f6f6;
+  background-color: #40514edb;
+  border-radius: 5px;
+}
+
+#addNode:hover {
+  background-color: #40514e;
 }
 
 #canvas {
@@ -26,7 +39,8 @@
   margin-left: -10px;
   overflow-y: hidden;
   height: 100.8%;
-  width: 100.5%;
+  width: 100.7%;
+  background-color: #30e3ca;
   background-size: 40px 40px;
   z-index: 0;
   background-image:
@@ -35,15 +49,22 @@
 }
 
 .storyNode {
-  height: 200px;
-  width: 200px;
-  background-color: white;
-  border: 2px solid black;
+  height: 250px;
+  width: 250px;
+  background-color: #11999e;
+  border-radius: 25px;
+  border: 2px solid #40514e;
   z-index: 4;
   display: flex;
   flex-direction: column;
   padding: 20px;
   gap: 10px;
+}
+
+.titleContent, .noteContent {
+  background-color: #f3f6f6;
+  border-radius: 5px;
+  border: none;
 }
 
 .noteContent {
@@ -55,6 +76,25 @@
   display: flex;
   justify-content: center;
   gap: 10px;
+}
+
+.saveButton {
+  height: 25px;
+  border: none;
+  font-size: medium;
+  color: #f3f6f6;
+  background-color: #40514edb;
+}
+
+.saveButton:hover, .editButton:hover {
+  background-color: #40514e;
+}
+
+.editButton {
+  font-size: medium;
+  border: none;
+  color: #f3f6f6;
+  background-color: #40514edb;
 }
 
 .buttonContainer > * {

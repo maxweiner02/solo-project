@@ -7,7 +7,6 @@ import React from 'react';
 import Draggable from 'react-draggable';
 
 const StoryNode = (props) => {
-  // eslint-disable-next-line react/prop-types
   const {
     hoverNodeState,
     multiplier,
@@ -66,12 +65,12 @@ const StoryNode = (props) => {
       bounds="parent"
       defaultPosition={{
         x: posX - 110 || ((window.screen.width / 2) - 200),
-        y: posY - 209 || ((window.screen.height / 2) + multiplier - 200),
+        y: posY - 400 || ((window.screen.height / 2) + multiplier),
       }}
     >
       <div className="storyNode" onMouseEnter={() => startHover()} onMouseLeave={() => endHover()}>
-        <input type="text" className="titleContent" defaultValue={title || ''} />
-        <textarea className="noteContent" defaultValue={text || ''} />
+        <input type="text" className="titleContent" defaultValue={title || 'Title'} />
+        <textarea className="noteContent" defaultValue={text || 'Message'} />
         <div className="buttonContainer">
           <button type="submit" className="saveButton" onClick={(event) => saveHelper(event)}>Save</button>
           <button type="button" className="editButton" onClick={(event) => deleteHelper(event)}>Delete</button>
